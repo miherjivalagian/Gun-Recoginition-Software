@@ -3,7 +3,7 @@ import cv2
 import imutils
 import datetime
 
-gunCascade = cv2.CascadeClassifer('cascade.xml')
+gunCascade = cv2.CascadeClassifier('cascade.xml')
 camera = cv2.VideoCapture(0)
 
 firstFrame = None
@@ -13,7 +13,7 @@ while True:
     ret, frame = camera.read()
     frame = imutils.resize(frame, width = 500)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    gun = gunCascade.detectMultiScale(gray, 1.3, 5, minSize = (100,100))
+    gun = gunCascade.detectMultiScale(gray, 1.3, 5, minSize = (100, 100))
     if len(gun) > 0:
         gunExist = True
     for (x, y, w, h) in gun:
